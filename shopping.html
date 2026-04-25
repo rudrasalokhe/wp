@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table{
+            border: 1px solid black;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="shopping.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myShopping">\
+    <form ng-submit="checkout()">
+    <table>
+        <tr>
+            <td>Food Items</td>
+            <td>Price</td>
+            <td>Quanity</td>
+        </tr>
+        <tr>
+            <td>Pizza</td>
+            <td>100</td>
+            <td><input type="number" ng-model="pizzaQty"></td>
+        </tr>
+        <tr>
+            <td>pasta</td>
+            <td>100</td>
+            <td><input type="number" ng-model="pastaaQty"></td>
+        </tr>
+        <tr>
+            <td>bread</td>
+            <td>100</td>
+            <td><input type="number" ng-model="breadQty"></td>
+        </tr>
+        <tr>
+            <td>sandwitch</td>
+            <td>100</td>
+            <td><input type="number" ng-model="sandQty"></td>
+        </tr>
+        <tr>
+            <td>ICE CRERAMY PIE</td>
+            <td>100</td>
+            <td><input type="number" ng-model="iceQty"></td>
+        </tr>
+    </table>
+    <input type="submit" value="CheckOut">
+    </form>
+    <div ng-show="showBill">
+       Your bill is: {{totalBill}} 
+       <p>{{pizzaQty}}</p>
+       <p>{{pastaaQty}}</p>
+       <p>{{breadQty}}</p>
+       <p>{{sandQty}}</p>
+       <p>{{iceQty}}</p>
+    </div>
+</body>
+</html>
