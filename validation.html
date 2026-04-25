@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="validation.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController" >
+    <form name="myForm" ng-submit="validate()" novalidate>
+        <label>Name:</label>
+        <input type="text"  name="fname" ng-model="fname" ng-pattern="/^[A-Za-z]+$/" required><br>
+        <span ng-show="myForm.fname.$touched && myForm.fname.$error.required">Name is Required</span>
+        <span ng-show="myForm.fname.$touched && myForm.fname.$error.pattern">Is should be a character</span><br>
+        <label>Last name:</label>
+        <input type="text" name="lname"  ng-model="lname" ng-pattern="/^[A-Za-z]+$/" required><br>
+        <span ng-show="myForm.lname.$touched && myForm.lname.$error.required">Last Name is required</span>
+        <span ng-show="myForm.lname.$touched && myForm.lname.$error.pattern">Only letters characthers are allowed</span><br>
+        
+        <label>email:</label>
+        <input type="email" name="email" ng-model="email" ng-pattern="/^[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+$/" required>
+        <span ng-show="myForm.email.$touched && myForm.email.$error.required">Email Required</span>
+        <span ng-show="myForm.email.$touched && myForm.email.$error.pattern">Valid email</span><br>
+        <label>Pasword:</label> 
+        <input type="password" name="password" ng-model="password" ng-pattern="./{5,10}$" required><br>
+        <span ng-show="myForm.password.$touched && myForm.password.$error.required">PAassword is required</span>
+        <span ng-show="myForm.password.$touched && myForm.password.$error.pattern">longer then 5</span><br>
+
+        <label>Phone no </label>
+        <input type="number" name="phone" ng-model="phone" ng-pattern="/^[0-9]{10}$/" required><br>
+        <span ng-show="myForm.phone.$touched && myForm.phone.$error.required">Phone no is required</span>
+        <span ng-show="myForm.phone.$touched && myForm.phone.$error.pattern">Min 10 required</span>
+        <br>
+        <label>Gender</label>
+        <input type="radio" ng-model="gender" value="Male">Male
+        <input type="radio" ng-model="gender" value="Female">Female
+        <span ng-show="submitted && !gender">Gender is required</span><br>
+        <label>country</label>
+        <select ng-model="country">
+            <option value="">Select</option> 
+            <option value="">INDIA</option>
+            <option>USA</option>
+            <option>UK</option>
+        </select>
+        <label for="">hobby</label>
+        <input type="checkbox" ng-model="cricket">Cricket
+        <input type="checkbox" ng-model="football">Football
+        <input type="checkbox" ng-model="baseball">Basevall
+        <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <div ng-show="lool">
+            <p>{{fname}}</p>
+             <p>{{lname}}</p>
+              <p>{{email}}</p>
+               <p>{{password}}</p>
+                <p>{{phone}}</p>
+                 <p>{{gender}}</p>
+                  <p>{{country}}</p>
+        </div>
+    </form>
+</body>
+</html>

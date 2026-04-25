@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Income Tax Calculator</title>
+</head>
+<body>
+
+<h2>Income Tax Calculator</h2>
+
+Enter Salary: 
+<input type="number" id="salary"><br><br>
+
+<button onclick="calculateTax()">Calculate</button>
+
+<h3 id="result"></h3>
+
+<script>
+function calculateTax() {
+    let salary = parseFloat(document.getElementById("salary").value);
+    let tax = 0;
+
+    if (salary <= 500000) {
+        tax = 0;
+    } 
+    else if (salary <= 1000000) {
+        tax = salary * 0.10;
+    } 
+    else {
+        tax = salary * 0.20;
+    }
+
+    let netSalary = salary - tax;
+
+    document.getElementById("result").innerHTML =
+        "Gross Salary: ₹" + salary + "<br>" +
+        "Tax Deducted: ₹" + tax + "<br>" +
+        "Net Salary: ₹" + netSalary;
+}
+</script>
+
+</body>
+</html>
