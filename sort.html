@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="angular.min.js"></script>
+    <script src="sort.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <button ng-click="sortname='fname'">Asc</button>
+    <button ng-click="sortname='-fname'">Desc</button>
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+        </tr>
+        <tr ng-repeat="name in names | orderBy:sortname">
+            <td>{{name.fname}}</td>
+             <td>{{name.lname}}</td>
+              <td>{{name.age}}</td>
+        </tr>
+    </table>
+</body>
+</html>
